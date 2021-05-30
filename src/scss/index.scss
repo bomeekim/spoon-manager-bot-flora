@@ -1,0 +1,23 @@
+.v-application {
+  background-image: url(https://4kwallpapers.com/images/wallpapers/macos-big-sur-apple-layers-fluidic-colorful-wwdc-stock-2560x1440-1455.jpg) !important;
+  background-size: cover;
+  background-position: center;
+
+  //background: #ff4100 !important;
+  //background: -webkit-linear-gradient(136deg, #ff4100 0%, #fff0f9 100%) !important;
+  //background: linear-gradient(17deg, #ff4100 0%, #fff0f9 100%) !important;
+  padding: 32px !important;
+}
+
+.glassmorphism {
+  background: rgba( 255, 255, 255, 0.40 ) !important;
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 10.0px );
+  -webkit-backdrop-filter: blur( 10.0px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 ) !important;
+}
+
+.v-card {
+  background-color: transparent;
+}
