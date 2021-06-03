@@ -4,8 +4,8 @@
       <v-row>
         <v-col>
           <webview
-            ref="webview"
             id="webview"
+            ref="webview"
             src="https://spooncast.net/"
             style="width:100%; height:100%;"
             allowpopups
@@ -17,11 +17,7 @@
               v-for="item in tabMenu"
               :key="item"
             >
-              <v-card
-                flat
-              >
-                <v-card-text>{{ item }}</v-card-text>
-              </v-card>
+              <router-view />
             </v-tab-item>
           </v-tabs-items>
         </v-col>
@@ -35,7 +31,7 @@ import { createNamespacedHelpers } from 'vuex';
 
 const {
   mapGetters: mapGettersApp,
-  mapMutations: mapMutationsApp
+  mapMutations: mapMutationsApp,
 } = createNamespacedHelpers('app');
 
 export default {
@@ -47,11 +43,52 @@ export default {
       'tabMenu',
     ]),
   },
+
+  mounted() {
+    const { webview } = this.$refs;
+
+    webview.addEventListener('did-finish-load', this.handleDidFinishLoad);
+    webview.addEventListener('new-window', (event) => {
+      // SNS 로그인은 새 창으로 뜨기 때문에 해당 이벤트를 통해 체크한다.
+      const isLoginBySns = event.url.indexOf('sns_type') !== -1;
+
+      if (!!event && isLoginBySns) {
+        setTimeout(this.handleLoginCheck, 3000);
+      }
+    });
+  },
+
+  methods: {
+    ...mapMutationsApp([
+      'setIsLoggedIn',
+      'setUserInfo',
+    ]),
+
+    handleDidFinishLoad() {
+      this.handleLoginCheck();
+    },
+
+    /**
+     * 로그인 여부를 체크하는 함수
+     * 로그인이 되어있을 경우 vuex 에 유저 정보를 저장한다.
+     * @returns {Promise<void>}
+     */
+    async handleLoginCheck() {
+      const authKey = await this.$refs.webview.executeJavaScript('localStorage.getItem(\'SPOONCAST_KR_authKey\')');
+      const refreshKey = await this.$refs.webview.executeJavaScript('localStorage.getItem(\'SPOONCAST_KR_refreshToken\')');
+      const userInfo = await this.$refs.webview.executeJavaScript('localStorage.getItem(\'SPOONCAST_KR_userInfo\')');
+
+      this.setIsLoggedIn(!!authKey && !!refreshKey);
+
+      if (userInfo) {
+        this.setUserInfo(JSON.parse(userInfo));
+      }
+    },
+  },
 };
 </script>
 
 <style scoped>
-
 .container {
   max-width: 100% !important;
 }

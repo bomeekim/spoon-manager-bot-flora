@@ -1,5 +1,8 @@
+// 배경화면
 .v-application {
-  background-image: url(https://4kwallpapers.com/images/wallpapers/macos-big-sur-apple-layers-fluidic-colorful-wwdc-stock-2560x1440-1455.jpg) !important;
+  background-image:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.72) 0%, rgb(255 255 255 / 45%) 10%),
+    url(https://4kwallpapers.com/images/wallpapers/macos-big-sur-apple-layers-fluidic-colorful-wwdc-stock-2560x1440-1455.jpg) !important;
   background-size: cover;
   background-position: center;
 
@@ -7,6 +10,12 @@
   //background: -webkit-linear-gradient(136deg, #ff4100 0%, #fff0f9 100%) !important;
   //background: linear-gradient(17deg, #ff4100 0%, #fff0f9 100%) !important;
   padding: 32px !important;
+}
+
+// 높이
+.v-application--wrap {
+  min-height: calc(100vh - 60px) !important;
+  height: calc(100vh - 60px) !important;
 }
 
 .glassmorphism {
@@ -18,6 +27,14 @@
   border: 1px solid rgba( 255, 255, 255, 0.18 ) !important;
 }
 
+.v-sheet {
+  background-color: transparent !important;
+}
+
 .v-card {
-  background-color: transparent;
+  background-color: transparent !important;
+}
+
+.v-tabs-items {
+  background-color: transparent !important;
 }

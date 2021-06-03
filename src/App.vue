@@ -1,13 +1,13 @@
 <template>
   <v-app class="pa-10">
-    <Header/>
-    <Main/>
+    <Header />
+    <Main />
   </v-app>
 </template>
 
 <script>
-import Header from './components/Header';
-import Main from './components/Main';
+import Header from './components/Header.vue';
+import Main from './components/Main.vue';
 
 export default {
   name: 'App',

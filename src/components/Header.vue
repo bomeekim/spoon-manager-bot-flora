@@ -9,8 +9,8 @@
       v-model="tab"
       centered
       background-color="transparent"
-      color="white"
-      slider-color="white"
+      color="black"
+      slider-color="black"
     >
       <v-tab
         v-for="item in tabMenu"
@@ -30,7 +30,7 @@ import { createNamespacedHelpers } from 'vuex';
 
 const {
   mapGetters: mapGettersApp,
-  mapMutations: mapMutationsApp
+  mapMutations: mapMutationsApp,
 } = createNamespacedHelpers('app');
 
 export default {
@@ -50,14 +50,14 @@ export default {
   watch: {
     tab(newVal) {
       this.setCurrentTab(newVal);
-    }
+    },
   },
 
   methods: {
     ...mapMutationsApp([
-      'setCurrentTab'
-    ])
-  }
+      'setCurrentTab',
+    ]),
+  },
 };
 </script>
 
