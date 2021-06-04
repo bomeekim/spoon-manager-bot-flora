@@ -1,3 +1,6 @@
+// 폰트
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&display=swap');
+
 // 배경화면
 .v-application {
   background-image:
@@ -27,6 +30,15 @@
   border: 1px solid rgba( 255, 255, 255, 0.18 ) !important;
 }
 
+.default-v-card {
+  background: rgba( 189, 189, 189, 0.25 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 4px );
+  -webkit-backdrop-filter: blur( 4px );
+  border-radius: 10px !important;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
 .v-sheet {
   background-color: transparent !important;
 }
@@ -37,4 +49,19 @@
 
 .v-tabs-items {
   background-color: transparent !important;
+}
+
+.v-card__title > p {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.v-subheader {
+  color: #3c3a3a !important;
+  font-size: 15px !important;
+  font-weight: 500 !important;
+}
+
+.v-card__text {
+  color: white;
 }

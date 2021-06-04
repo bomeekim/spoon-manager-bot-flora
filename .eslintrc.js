@@ -9,6 +9,14 @@ module.exports = {
     'plugin:vue/recommended',
     '@vue/airbnb',
   ],
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.vue'],
+      },
+    },
+    'import/no-extraneous-dependencies': ['error', { devDependencies: false, optionalDependencies: false, peerDependencies: false }],
+  },
   parserOptions: {
     parser: 'babel-eslint',
     ecmaVersion: 6,
@@ -20,13 +28,5 @@ module.exports = {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-shadow': ['error', { allow: ['state'] }],
-  },
-  settings: {
-    'import/resolver': {
-      node: {
-        extensions: ['.js', '.jsx', '.vue'],
-      },
-    },
-    'import/no-extraneous-dependencies': ['error', { devDependencies: false, optionalDependencies: false, peerDependencies: false }],
   },
 };
