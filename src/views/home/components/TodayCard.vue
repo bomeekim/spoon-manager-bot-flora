@@ -9,7 +9,7 @@
           <v-card
             class="default-v-card"
             elevation="0"
-            height="150"
+            min-height="150"
           >
             <v-card-title>
               🗓 스푼과 {{ calculatedSpoonJoinDays }}일째
@@ -33,6 +33,7 @@
           <v-card
             class="default-v-card"
             elevation="0"
+            min-height="150"
           >
             <v-card-title>👻 팔로워 {{ userInfo.follower_count }}</v-card-title>
             <v-card-text>
@@ -51,7 +52,6 @@
           </v-card>
         </v-col>
       </v-row>
-      <v-row>팬보드 영역</v-row>
     </template>
   </content-section>
 </template>

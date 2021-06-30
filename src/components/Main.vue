@@ -81,7 +81,10 @@ export default {
       this.setIsLoggedIn(!!authKey && !!refreshKey);
 
       if (userInfo) {
-        this.setUserInfo(JSON.parse(userInfo));
+        this.setUserInfo({
+          ...JSON.parse(userInfo),
+          token: authKey,
+        });
       }
     },
   },
