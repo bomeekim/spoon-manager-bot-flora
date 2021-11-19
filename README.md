@@ -1,4 +1,4 @@
-# flora
+# spoon-manager-bot-flora
 
 ## Project setup
 ```
